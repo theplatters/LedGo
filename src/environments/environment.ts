@@ -3,7 +3,8 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: false,
+  LED_HANDLER_IP: "http://10.0.0.11:8000",
 };
 
 /*

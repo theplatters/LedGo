@@ -1,0 +1,106 @@
+@use 'sass:list';
+@use 'sass:math';
+
+$colors: #FB5656, #D662FF, #6284FF, #8CA5FF, #8CEAFF, #19FDE2, #6FFF7D, #FCFF6F, #FFAB6F, #FDFDFD;   
+
+
+@mixin desktop(){
+    @media screen and (min-width: 800px){
+        @content
+    }
+}
+
+@mixin color($num) {
+    background-color: list.nth($colors, $num);
+}
+
+
+.root{
+    height: 80%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: center;
+    
+    @include desktop(){
+
+        justify-content: flex-start;
+        flex-direction: row;
+    }
+    .onBtn{
+        /* OnButton-Outline */
+
+
+        width: 169px;
+        height: 165px;
+
+
+        background: #EEEEEE;
+        box-shadow: -10px -4px 10px rgba(255, 255, 255, 0.5), 0px 4px 4px rgba(0, 0, 0, 0.25);
+        border-radius: 82.5px;
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-bottom: 70px;
+
+        @include desktop(){
+            margin: 0 10%;
+        }
+    }
+
+
+
+
+
+
+    .colorPicker{
+
+
+        width: 318px;
+        height: 345px;
+
+
+
+
+        background: #EEEEEE;
+        box-shadow: 7px 7px 10px rgba(0, 0, 0, 0.25), -7px -7px 10px rgba(255, 255, 255, 0.25);
+        border-radius: 26px;
+
+        display: grid;
+        grid-template-rows: auto;
+        grid-template-columns: auto;
+        justify-items: center;
+        align-items: center;
+
+        @include desktop(){
+            width: 50%;
+            grid-auto-rows: minmax(10px, auto);
+        }
+
+
+        .color{
+
+            width: 140px;
+            height: 53px;
+            background: #19FDE2;
+            border-radius: 43px;
+
+            /* Rectangle 16 */
+
+
+            
+
+
+            @for $i from 1 through 10 {
+                &:nth-child( #{$i} ) {
+                    @include color($i)
+                }
+            }
+        }
+
+        .isActive{
+            border: 1px solid black;
+        }
+    }
+}

@@ -1,0 +1,24 @@
+
+<div class="ledPicker">
+    <div class="toolbar"> 
+        <i class="fas fa-pen"></i>
+        <i class="fas fa-tint" [style.color] = "color" #colorPickerIcon></i>
+        <i class="fas fa-arrow-right" (click)="finish()"></i>
+
+
+        
+        
+    </div>
+   <app-colorpicker [style.display]="colorPickerShown ? 'block' : 'none '"  #cp></app-colorpicker>
+
+
+    <div class="ledGrid">
+        <div *ngFor="let led of leds">
+            <div [style.background-color]="led.color" style="color : white" (click)="setColorOfLed(led)" (mouseover)="setColorOfLedHov(led)" (drag)="false"></div>
+        </div>
+
+    </div>
+
+
+</div>
+

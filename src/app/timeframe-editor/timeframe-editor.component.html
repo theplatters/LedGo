@@ -1,0 +1,15 @@
+
+<div class="timeframes">
+    <div class="timeframe" *ngFor="let timeframe of timeframes; index as i">
+        <p>Timeframe: {{i + 1}} || Duration: {{timeframe.getLenght()}}ms</p>
+
+        <mat-slider min="0" max="10000" [value]="timeframe.getLenght()" (input)="changeDuration($event, i)"></mat-slider>
+        <i class="fas fa-grip-vertical" (click)="openLedGrid(i)"></i>
+        <i class="fas fa-pen"></i>
+        
+    </div>
+
+    <i class="fas fa-plus" (click)="addTimeframe()"></i>
+</div>
+
+<router-outlet></router-outlet>
